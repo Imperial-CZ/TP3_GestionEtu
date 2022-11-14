@@ -97,5 +97,8 @@
     <ClInclude Include="viewForms.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="controllers.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

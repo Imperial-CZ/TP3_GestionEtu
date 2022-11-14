@@ -2,6 +2,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+#include <QStringList>
+#include <QString>
 
 Promotion::Promotion()
 {
@@ -32,8 +34,11 @@ void Promotion::readList(const QString& filename)
     else qDebug() << "Unable to open file" << filename << ": error" << myfile.error() << "," << myfile.errorString();
 }
 
-QVector<Student> Promotion::getStudentslist()
-{
-    return studentsList;
-}
+QStringList Promotion::getStudentslist() {
+    QStringList temp;
+    for (int i = 0; i != studentsList.size(); i++) {
+        temp.append(studentsList[i].getId() + " - " + studentsList[i].getLastname() + " " + studentsList[i].getFirstname() + " (" + studentsList[i].getDepartement() + ")");
+    }
 
+    return temp;
+}

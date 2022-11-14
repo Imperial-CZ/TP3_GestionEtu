@@ -1,16 +1,20 @@
 #pragma once
 #include "promotion.h"
+#include "observer.h"
+#include <QListWidget>
 
 
 /**
  * @brief Class to manage the QListWidget
  * @author Adrien Peytavie
 */
-class ViewList
+class ViewList : public Observer
 {
 private:
-
+	Promotion* promo;
+	QListWidget* liste;
 public:
-	ViewList();
-	void update();
+	ViewList(Promotion* xpromo, QListWidget* xliste);
+	void update() override;
+	void remove();
 };
