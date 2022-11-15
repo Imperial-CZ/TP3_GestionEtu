@@ -14,6 +14,23 @@ void Promotion::add(Student xstud)
     studentsList.append(xstud);
 }
 
+void Promotion::remove(Student student)
+{
+    for (int i = 0; i < studentsList.length(); i++) {
+        if (studentsList[i].getId() == student.getId()) {
+            studentsList.remove(i);
+        }
+        return;
+    }
+}
+Student Promotion::find(QString studentId) {
+    for (int i = 0; i < studentsList.length(); i++) {
+        if (studentId == studentsList[i].getId()) {
+            return studentsList[i];
+        }
+    }
+}
+
 void Promotion::readList(const QString& filename)
 {
     QString line;
@@ -41,6 +58,34 @@ QStringList Promotion::getStudentslist() {
     }
 
     return temp;
+}
+
+int Promotion::compterS() {
+    int nbS = 0;
+    for (int i = 0; i < studentsList.length(); i++) {
+        if (studentsList[i].getBac() == "S") {
+            nbS++;
+        }
+    }
+    return nbS;
+}
+int Promotion::compterES() {
+    int nbES = 0;
+    for (int i = 0; i < studentsList.length(); i++) {
+        if (studentsList[i].getBac() == "ES") {
+            nbES++;
+        }
+    }
+    return nbES;
+}
+int Promotion::compterSTI() {
+    int nbSTI = 0;
+    for (int i = 0; i < studentsList.length(); i++) {
+        if (studentsList[i].getBac() == "STI") {
+            nbSTI++;
+        }
+    }
+    return nbSTI;
 }
 
 void Promotion::addObserver(Observer* observer) {

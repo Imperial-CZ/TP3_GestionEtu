@@ -23,4 +23,10 @@ private:
     ViewForms* listForm;
     ViewPieChart* pieChartView;
     ViewHistogram* histogramView;
+
+    void PieChart();
+    void BarChart();
+
+private slots:
+    void launchControl();
 };

@@ -66,7 +66,7 @@ public:
 
         // Check if the ID already exist
         Student studentOld = promo->find(list[0]);
-        if (studentOld.getCardID() != "")
+        if (studentOld.getId() != "")
         {
             // Create an error
             QMessageBox::warning(nullptr,"Add Student","The student already exist.");
@@ -127,7 +127,7 @@ public:
         Student student = promo->find(list[0]);
 
         // Check if the student has been found
-        if (student.getCardID()!="")
+        if (student.getId()!="")
             promo->remove(student);
     }
 };
