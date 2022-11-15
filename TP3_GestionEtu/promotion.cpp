@@ -42,3 +42,13 @@ QStringList Promotion::getStudentslist() {
 
     return temp;
 }
+
+void Promotion::addObserver(Observer* observer) {
+
+}
+void Promotion::removeObserver(Observer* observer) {
+
+}
+void Promotion::notifyObserver() const {
+
+}
