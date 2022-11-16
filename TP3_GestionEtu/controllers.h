@@ -34,7 +34,7 @@ public:
   virtual void control(const QStringList& list) override
   {
         // Check the number of parameters
-        //if (list.size() != 1) return;
+        // if (list.size() != 1) return;
     for (QString student: list)
     {
         promo->remove(student);

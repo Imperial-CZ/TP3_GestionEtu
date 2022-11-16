@@ -16,5 +16,4 @@ private:
 public:
 	ViewList(Promotion* xpromo, QListWidget* xliste);
 	void update() override;
-	void remove();
 };

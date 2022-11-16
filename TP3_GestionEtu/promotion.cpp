@@ -23,6 +23,17 @@ void Promotion::remove(Student student)
         return;
     }
 }
+void Promotion::remove(QString student) {
+    QString studentSearched;
+    for (int i = 0; i < studentsList.length(); i++) {
+        studentSearched = studentsList[i].getId() + " - " + studentsList[i].getLastname() + " " + studentsList[i].getFirstname() + " (" + studentsList[i].getDepartement() + ")";
+        if (student == studentSearched) {
+            studentsList.remove(i); 
+            return;
+        }
+        
+    }
+}
 Student Promotion::find(QString studentId) {
     for (int i = 0; i < studentsList.length(); i++) {
         if (studentId == studentsList[i].getId()) {

@@ -29,9 +29,10 @@ void TP3_GestionEtu::BarChart() {
 
 void TP3_GestionEtu::launchControl() {
     
-    Controller_DeleteForm c = Controller_DeleteForm(promo);
+    Controller_DeleteList c = Controller_DeleteList(promo);
     QString selected = ui.listWidget->currentItem()->text();
     QStringList list;
-    list.append(selected.mid(0, 3));
+    list.append(selected);
     c.control(list);
+    listView->update();
 }
