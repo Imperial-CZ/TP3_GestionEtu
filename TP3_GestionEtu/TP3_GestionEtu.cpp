@@ -1,7 +1,7 @@
 #include "TP3_GestionEtu.h"
 #include"viewPieChart.h"
 #include "controllers.h"
-
+#include <QDebug>
 TP3_GestionEtu::TP3_GestionEtu(Promotion* xpromo, QWidget* parent) : QMainWindow(parent)
 {
     promo = xpromo;
@@ -22,9 +22,10 @@ TP3_GestionEtu::TP3_GestionEtu(Promotion* xpromo, QWidget* parent) : QMainWindow
 
 void TP3_GestionEtu::launchDeleteList() {
     Controller_DeleteList c = Controller_DeleteList(promo);
-    QString selected = ui.listWidget->currentItem()->text();
     QStringList list;
-    list.append(selected);
+    for (QListWidgetItem* item : ui.listWidget->selectedItems()){
+        list.append(item->text().split(" ")[0]);
+    }
     c.control(list);
 }
 

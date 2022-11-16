@@ -1,8 +1,7 @@
 #include "viewHistogram.h"
 
-ViewHistogram::ViewHistogram(Promotion* _promo, QGroupBox* _groupBox) : promo(_promo), groupBox(_groupBox)
+ViewHistogram::ViewHistogram(Promotion* _promo, QGroupBox* _groupBox) : promo(_promo), groupBox(_groupBox), chartView(nullptr)
 {
-    chartView = nullptr;
     QGridLayout* grid = new QGridLayout();
     groupBox->setLayout(grid);
     update();
@@ -33,10 +32,10 @@ void ViewHistogram::update() {
     chart->legend()->setVisible(false);
 
     QChartView* newchartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
+    newchartView->setRenderHint(QPainter::Antialiasing);
 
     if (chartView == nullptr) {
-        groupBox->layout()->addWidget(chartView);
+        groupBox->layout()->addWidget(newchartView);
     }
     else {
         groupBox->layout()->replaceWidget(chartView, newchartView);

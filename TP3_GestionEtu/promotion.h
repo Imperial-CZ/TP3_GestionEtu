@@ -17,6 +17,7 @@ public:
 	void add(Student);
 	void remove(Student);
 	void remove(QString);
+	void remove(QVector<Student> students);
 	Student find(QString);
 	void readList(const QString&);
 	QStringList getStudentslist();

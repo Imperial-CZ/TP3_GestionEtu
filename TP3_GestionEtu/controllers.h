@@ -33,12 +33,16 @@ public:
   */
   virtual void control(const QStringList& list) override
   {
+    QVector<Student> studList;
         // Check the number of parameters
-        // if (list.size() != 1) return;
+    if (list.isEmpty()) {
+        return;
+    }
     for (QString student: list)
     {
-        promo->remove(student);
+        studList.append(promo->find(student));
     }
+    promo->remove(studList);
   }
 };
 

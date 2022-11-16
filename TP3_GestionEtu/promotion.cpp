@@ -30,10 +30,24 @@ void Promotion::remove(QString student) {
     for (int i = 0; i < studentsList.length(); i++) {
         studentSearched = studentsList[i].getId() + " - " + studentsList[i].getLastname() + " " + studentsList[i].getFirstname() + " (" + studentsList[i].getDepartement() + ")";
         if (student == studentSearched) {
-            studentsList.remove(i); 
+            studentsList.remove(i);
+            notifyObserver();
             return;
         }
     }
+}
+void Promotion::remove(QVector<Student> students) {
+    QString studentSearched;
+    for (int i = 0; i < studentsList.length(); i++) {
+        studentSearched = studentsList[i].getId();
+        for (int j = 0; j < students.length(); j++) {
+            if (students[j].getId() == studentSearched) {
+                studentsList.remove(i);
+                break;
+            }
+        }
+    }
+    notifyObserver();
 }
 Student Promotion::find(QString studentId) {
     for (int i = 0; i < studentsList.length(); i++) {
