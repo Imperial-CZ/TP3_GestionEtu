@@ -1,15 +1,24 @@
 #pragma once
 #include"promotion.h"
-#include<QWidget>
+#include <QWidget>
+#include <QGroupBox>
+#include <QChartView>
+#include <QPieSeries>
+#include <QGridLayout>
 
 /**
  * @brief Class to manage the PieChart View
  * @author Adrien Peytavie
 */
-class ViewPieChart 
+class ViewPieChart : public Observer
 {
+private:
+	QChartView* chartView;
+	Promotion* promo;
+	QGroupBox* groupBox;
+
 public:
-	ViewPieChart();
-	QWidget* getPieChartView(Promotion& promo);
+	ViewPieChart(Promotion*, QGroupBox*);
+	void update() override;
 };
 

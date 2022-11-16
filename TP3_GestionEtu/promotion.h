@@ -10,6 +10,7 @@ class Promotion : public Observable
 private:
 	QVector<Student> studentsList;
 	Student selectedStudent;
+	QVector<Observer*> observersList;
 
 public:
 	Promotion();

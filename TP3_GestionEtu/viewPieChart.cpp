@@ -1,15 +1,18 @@
 #include "viewPieChart.h"
-#include <QtCharts/QChartView>
-#include <QtCharts/QPieSeries>
 
-ViewPieChart::ViewPieChart()
+ViewPieChart::ViewPieChart(Promotion* _promo, QGroupBox* _groupBox) : promo(_promo), groupBox(_groupBox)
 {
+	chartView = nullptr;
+	QGridLayout* grid = new QGridLayout();
+	groupBox->setLayout(grid);
+	update();
 }
 
-QWidget* ViewPieChart::getPieChartView(Promotion& promo) {
-	int nbS = promo.compterS();
-	int nbSTI = promo.compterSTI();
-	int nbES = promo.compterES();
+void ViewPieChart::update() {
+
+	int nbS = promo->compterS();
+	int nbSTI = promo->compterSTI();
+	int nbES = promo->compterES();
 
 	QPieSeries* chartBac = new QPieSeries();
 	chartBac->append("S", nbS);
@@ -29,6 +32,13 @@ QWidget* ViewPieChart::getPieChartView(Promotion& promo) {
 	chart->setAnimationOptions(QChart::SeriesAnimations); // a nice animation!!
 	chart->legend()->hide();
 
-	QChartView* chartView = new QChartView(chart);
-	return chartView;
+	QChartView* newchartView = new QChartView(chart);
+
+    if (chartView == nullptr) {
+        groupBox->layout()->addWidget(chartView);
+    }
+    else {
+        groupBox->layout()->replaceWidget(chartView, newchartView);
+    }
+    chartView = newchartView;
 }

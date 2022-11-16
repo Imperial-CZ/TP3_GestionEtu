@@ -24,9 +24,7 @@ private:
     ViewPieChart* pieChartView;
     ViewHistogram* histogramView;
 
-    void PieChart();
-    void BarChart();
-
 private slots:
-    void launchControl();
+    void launchDeleteList();
+    void launchDeleteForm();
 };
