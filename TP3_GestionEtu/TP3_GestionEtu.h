@@ -25,6 +25,7 @@ private:
     ViewHistogram* histogramView;
 
 private slots:
+    void launchAddForm();
     void launchDeleteList();
     void launchDeleteForm();
 };

@@ -18,6 +18,7 @@ TP3_GestionEtu::TP3_GestionEtu(Promotion* xpromo, QWidget* parent) : QMainWindow
     
     connect(ui.pushButton_delete_list, &QPushButton::pressed, this, &TP3_GestionEtu::launchDeleteList);
     connect(ui.pushButton_delete_number, &QPushButton::pressed, this, &TP3_GestionEtu::launchDeleteForm);
+    //connect()
 }
 
 void TP3_GestionEtu::launchDeleteList() {
@@ -36,4 +37,10 @@ void TP3_GestionEtu::launchDeleteForm() {
     list.append(selected);
     c.control(list);
     ui.lineEdit_remove_number->clear();
+}
+
+void TP3_GestionEtu::launchAddForm() {
+    Controller_AddForm c = Controller_AddForm(promo);
+    
+    c.control(list);
 }
