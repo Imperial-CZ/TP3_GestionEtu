@@ -2,6 +2,7 @@
 #include"viewPieChart.h"
 #include "controllers.h"
 
+
 TP3_GestionEtu::TP3_GestionEtu(Promotion* xpromo, QWidget* parent) : QMainWindow(parent)
 {
     promo = xpromo;
