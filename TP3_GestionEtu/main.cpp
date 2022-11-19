@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     // Create Promotion
     Promotion promo;
     promo.readList("promoDUT");
+    promo.initMapDept();
 
 
     // Create Interface

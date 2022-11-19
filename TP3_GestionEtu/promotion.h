@@ -4,6 +4,8 @@
 #include <QVector>
 #include <QStringList>
 #include <QString>
+#include <QMap>
+
 
 class Promotion : public Observable
 {
@@ -11,9 +13,11 @@ private:
 	QVector<Student> studentsList;
 	Student selectedStudent;
 	QVector<Observer*> observersList;
+	QMap<QString, int> mapDept;
 
 public:
 	Promotion();
+	void initMapDept();
 	void add(Student);
 	void remove(Student);
 	void remove(QString);
@@ -21,7 +25,7 @@ public:
 	Student find(QString);
 	void readList(const QString&);
 	QStringList getStudentslist();
-
+	QMap<QString, int>* getMapDept();
 	int compterS();
 	int compterES();
 	int compterSTI();

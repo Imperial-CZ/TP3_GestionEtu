@@ -8,15 +8,15 @@ ViewPieChart::ViewPieChart(Promotion* _promo, QGroupBox* _groupBox) : promo(_pro
 }
 
 void ViewPieChart::update() {
-
-	int nbS = promo->compterS();
-	int nbSTI = promo->compterSTI();
-	int nbES = promo->compterES();
-
+	promo->initMapDept();
+	QMap<QString, int> mapDept= *promo->getMapDept();
+	
 	QPieSeries* chartBac = new QPieSeries();
-	chartBac->append("S", nbS);
-	chartBac->append("ES", nbES);
-	chartBac->append("STI", nbSTI);
+	QMapIterator<QString, int> iterator(mapDept);
+	while (iterator.hasNext()) {
+		iterator.next();
+		chartBac->append(iterator.key(), iterator.value());
+	}
 	chartBac->setLabelsVisible(true);
 
 	QPieSlice* slice1 = chartBac->slices().at(0);

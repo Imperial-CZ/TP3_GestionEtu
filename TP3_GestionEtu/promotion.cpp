@@ -7,7 +7,21 @@
 
 Promotion::Promotion()
 {
+    
+}
 
+void Promotion::initMapDept() {
+    mapDept.clear();
+    mapDept["1"] = 0;
+    mapDept["38"] = 0;
+    mapDept["39"] = 0;
+    mapDept["69"] = 0;
+    mapDept["71"] = 0;
+    mapDept["84"] = 0;
+    mapDept["Autre"] = 0;
+    for (int i = 0; i < studentsList.length(); i++) {
+        mapDept[studentsList[i].getDepartement()]+=1;
+    }
 }
 
 void Promotion::add(Student xstud)
@@ -15,6 +29,7 @@ void Promotion::add(Student xstud)
     studentsList.append(xstud);
     notifyObserver();
 }
+
 void Promotion::remove(Student student)
 {
     for (int i = 0; i < studentsList.length(); i++) {
@@ -25,6 +40,7 @@ void Promotion::remove(Student student)
         }
     }
 }
+
 void Promotion::remove(QString student) {
     QString studentSearched;
     for (int i = 0; i < studentsList.length(); i++) {
@@ -36,6 +52,7 @@ void Promotion::remove(QString student) {
         }
     }
 }
+
 void Promotion::remove(QVector<Student> students) {
     QString studentSearched;
     for (int i = 0; i < studentsList.length(); i++) {
@@ -49,6 +66,7 @@ void Promotion::remove(QVector<Student> students) {
     }
     notifyObserver();
 }
+
 Student Promotion::find(QString studentId) {
     for (int i = 0; i < studentsList.length(); i++) {
         if (studentId == studentsList[i].getId()) {
@@ -86,7 +104,9 @@ QStringList Promotion::getStudentslist() {
 
     return temp;
 }
-
+QMap<QString, int>* Promotion::getMapDept() {
+    return &mapDept;
+}
 int Promotion::compterS() {
     int nbS = 0;
     for (int i = 0; i < studentsList.length(); i++) {
