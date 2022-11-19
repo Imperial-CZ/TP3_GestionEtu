@@ -42,5 +42,5 @@ void TP3_GestionEtu::launchDeleteForm() {
 void TP3_GestionEtu::launchAddForm() {
     Controller_AddForm c = Controller_AddForm(promo);
     
-    c.control(list);
+    //c.control();
 }
