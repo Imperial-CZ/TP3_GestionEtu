@@ -1,11 +1,11 @@
 #include "viewList.h"
-#include <QVector>
-#include <QListWidget>
+
 
 
 ViewList::ViewList(Promotion* xpromo, QListWidget* xliste) : promo(xpromo), liste(xliste)
 {
 	update();
+	liste->setSelectionMode(QListWidget::ExtendedSelection);
 }
 
 void ViewList::update() {

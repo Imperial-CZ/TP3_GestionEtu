@@ -10,12 +10,14 @@ class Promotion : public Observable
 private:
 	QVector<Student> studentsList;
 	Student selectedStudent;
+	QVector<Observer*> observersList;
 
 public:
 	Promotion();
 	void add(Student);
 	void remove(Student);
 	void remove(QString);
+	void remove(QVector<Student> students);
 	Student find(QString);
 	void readList(const QString&);
 	QStringList getStudentslist();

@@ -1,20 +1,16 @@
 #include "viewHistogram.h"
-#include <QtCharts/QChartView>
-#include <QtCharts/QPieSeries>
-#include <QtCharts/QPieSeries>
-#include <QtCharts/QBarSeries>
-#include <QtCharts/QBarSet>
-#include <QBarCategoryAxis>
-#include <QValueAxis>
 
-ViewHistogram::ViewHistogram() 
+ViewHistogram::ViewHistogram(Promotion* _promo, QGroupBox* _groupBox) : promo(_promo), groupBox(_groupBox), chartView(nullptr)
 {
+    QGridLayout* grid = new QGridLayout();
+    groupBox->setLayout(grid);
+    update();
 }
-QWidget* ViewHistogram::getBarChartView(Promotion& promo) {
-	
-	int nbS = promo.compterS();
-	int nbSTI = promo.compterSTI();
-	int nbES = promo.compterES();
+
+void ViewHistogram::update() {
+    int nbS = promo->compterS();
+    int nbSTI = promo->compterSTI();
+    int nbES = promo->compterES();
 
     QBarSet* set0 = new QBarSet("");
     *set0 << nbS << nbES << nbSTI;
@@ -35,8 +31,14 @@ QWidget* ViewHistogram::getBarChartView(Promotion& promo) {
     chart->setAxisX(axis, series);
     chart->legend()->setVisible(false);
 
-    QChartView* chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
+    QChartView* newchartView = new QChartView(chart);
+    newchartView->setRenderHint(QPainter::Antialiasing);
 
-    return chartView;
+    if (chartView == nullptr) {
+        groupBox->layout()->addWidget(newchartView);
+    }
+    else {
+        groupBox->layout()->replaceWidget(chartView, newchartView);
+    }
+    chartView = newchartView;
 }
