@@ -8,6 +8,10 @@
 #include "viewHistogram.h"
 #include "promotion.h"
 
+/**
+ * @brief TP3_GestionEtu Permet la construction et la modification de l'affichage
+ * @author Etu
+*/
 class TP3_GestionEtu : public QMainWindow
 {
     Q_OBJECT
