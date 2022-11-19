@@ -19,14 +19,11 @@ void ViewPieChart::update() {
 	}
 	chartBac->setLabelsVisible(true);
 
-	QPieSlice* slice1 = chartBac->slices().at(0);
-	QPieSlice* slice2 = chartBac->slices().at(1);
-	QPieSlice* slice3 = chartBac->slices().at(2);
 	QChart* chart = new QChart();
 	chart->addSeries(chartBac);
 	chart->setTitle("REPARTITION GEOGRAPHIQUE");
 	chart->setAnimationOptions(QChart::SeriesAnimations); // a nice animation!!
-	chart->legend();
+	chart->legend()->setVisible(false);
 
 	QChartView* newchartView = new QChartView(chart);
 

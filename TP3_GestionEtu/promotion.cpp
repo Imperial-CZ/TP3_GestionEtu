@@ -13,6 +13,7 @@ Promotion::Promotion()
 void Promotion::initMapDept() {
     mapDept.clear();
     mapDept["1"] = 0;
+    mapDept["35"] = 0;
     mapDept["38"] = 0;
     mapDept["39"] = 0;
     mapDept["69"] = 0;
