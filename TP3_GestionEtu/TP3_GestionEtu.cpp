@@ -1,7 +1,7 @@
 #include "TP3_GestionEtu.h"
 #include"viewPieChart.h"
 #include "controllers.h"
-#include <QDebug>
+
 TP3_GestionEtu::TP3_GestionEtu(Promotion* xpromo, QWidget* parent) : QMainWindow(parent)
 {
     promo = xpromo;
