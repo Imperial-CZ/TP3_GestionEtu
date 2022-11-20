@@ -5,8 +5,8 @@
 #include <QListWidget>
 
 /**
- * @brief Class to manage the QListWidget
- * @author Adrien Peytavie
+ * @brief ViewList La classe ViewList gère l'affichage et la mise à jour de l'affichage de liste d'étudiant
+ * @author SUARD GaetanCLOSSON Jules
 */
 class ViewList : public Observer
 {

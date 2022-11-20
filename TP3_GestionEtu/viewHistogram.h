@@ -11,6 +11,11 @@
 #include <QValueAxis>
 #include <QGridLayout>
 
+
+/**
+ * @brief ViewHistogram La classe ViewHistogram gère l'affichage et la mise à jour de l'affichage de l'histogramme
+ * @author SUARD GaetanCLOSSON Jules
+*/
 class ViewHistogram : public Observer
 {
 private:

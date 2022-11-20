@@ -1,6 +1,10 @@
 #pragma once
 #include <QString>
 
+/**
+ * @brief Student Regroupe tous les attribut relatif à un étudiant, son ID, son nom, son prénom, son bac et son departement, cette classe possède des Getteurs afin de pouvoir récupérer les informations d'un étudiant
+ * @author SUARD GaetanCLOSSON Jules
+*/
 class Student
 {
 private:

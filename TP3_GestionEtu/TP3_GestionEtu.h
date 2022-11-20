@@ -10,13 +10,17 @@
 
 /**
  * @brief TP3_GestionEtu Permet la construction et la modification de l'affichage
- * @author Etu
+ * @author SUARD GaetanCLOSSON Jules
 */
 class TP3_GestionEtu : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief TP3_GestionEtu (Promotion *promo, QWidget *parent=nullptr) Constructeur de TP3_GestionEtu demandant une référence à une promotion et un QWidget qui attend une référence à un QWindows pour l'affichage
+     * @author SUARD GaetanCLOSSON Jules
+    */
     TP3_GestionEtu(Promotion* promo,QWidget *parent = nullptr);
     ~TP3_GestionEtu() {}
 private:

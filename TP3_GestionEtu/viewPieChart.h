@@ -7,8 +7,8 @@
 #include <QGridLayout>
 
 /**
- * @brief Class to manage the PieChart View
- * @author Adrien Peytavie
+ * @brief ViewPieChart La classe ViewPieChart gère l'affichage et la mise à jour de l'affichage du PieChart
+ * @author SUARD GaetanCLOSSON Jules
 */
 class ViewPieChart : public Observer
 {
