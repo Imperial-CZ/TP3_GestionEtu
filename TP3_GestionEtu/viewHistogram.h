@@ -13,7 +13,7 @@
 
 
 /**
- * @brief ViewHistogram La classe ViewHistogram gère l'affichage et la mise à jour de l'affichage de l'histogramme
+ * @brief ViewHistogram La classe ViewHistogram gere l'affichage et la mise a jour de l'affichage de l'histogramme
  * @author SUARD GaetanCLOSSON Jules
 */
 class ViewHistogram : public Observer

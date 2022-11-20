@@ -2,7 +2,7 @@
 #include <QString>
 
 /**
- * @brief Student Regroupe tous les attribut relatif à un étudiant, son ID, son nom, son prénom, son bac et son departement, cette classe possède des Getteurs afin de pouvoir récupérer les informations d'un étudiant
+ * @brief Student Regroupe tous les attribut relatif a un etudiant, son ID, son nom, son prenom, son bac et son departement, cette classe possede des Getters afin de pouvoir recuperer les informations d'un etudiant
  * @author SUARD GaetanCLOSSON Jules
 */
 class Student

@@ -7,7 +7,7 @@
 #include <QMap>
 
 /**
- * @brief Promotion La classe Promotion gère un Vecteur d'Etudiant avec différente fonction lui permettant d'ajouter, supprimer, modifier, ... le vecteur d'étudiant
+ * @brief Promotion La classe Promotion gere un Vecteur d'Etudiant avec differente fonction lui permettant d'ajouter, supprimer, modifier, ... le vecteur d'etudiant
  * @author SUARD GaetanCLOSSON Jules
 */
 class Promotion : public Observable
