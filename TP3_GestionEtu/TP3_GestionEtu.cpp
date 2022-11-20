@@ -22,6 +22,7 @@ TP3_GestionEtu::TP3_GestionEtu(Promotion* xpromo, QWidget* parent) : QMainWindow
     connect(ui.pushButton_delete_list, &QPushButton::pressed, this, &TP3_GestionEtu::launchDeleteList);
     connect(ui.pushButton_delete_number, &QPushButton::pressed, this, &TP3_GestionEtu::launchDeleteForm);
     connect(ui.pushButton_addStudent, &QPushButton::pressed, this, &TP3_GestionEtu::launchAddForm);
+    connect(ui.listWidget, &QListWidget::doubleClicked, this, &TP3_GestionEtu::launchModifyForm);
 }
 
 void TP3_GestionEtu::launchDeleteList() {
@@ -43,16 +44,59 @@ void TP3_GestionEtu::launchDeleteForm() {
 }
 
 void TP3_GestionEtu::launchAddForm() {
-    Controller_AddForm c = Controller_AddForm(promo);
+    Controller_AddForm cAdd = Controller_AddForm(promo);
     QStringList list;
     list.append(ui.lineEdit_add_number->text());
-    list.append(ui.lineEdit_add_firstname->text());
     list.append(ui.lineEdit_add_lastname->text());
+    list.append(ui.lineEdit_add_firstname->text());
     list.append(ui.lineEdit_add_BAC->currentText());
     list.append(ui.lineEdit_add_department->currentText());
 
-    c.control(list);
-    ui.lineEdit_add_number->clear();
-    ui.lineEdit_add_firstname->clear();
-    ui.lineEdit_add_lastname->clear();
+    if (ui.pushButton_addStudent->text() == "Ajout") {
+        
+        
+        cAdd.control(list);
+        ui.lineEdit_add_number->clear();
+        ui.lineEdit_add_firstname->clear();
+        ui.lineEdit_add_lastname->clear();
+    }
+    else if (ui.pushButton_addStudent->text() == "Enregistrer") {
+        Controller_DeleteForm cDelete = Controller_DeleteForm(promo);
+        QString selected = promo->getSelectedStudent()->getId();
+        QStringList listDelete;
+        listDelete.append(selected);
+        cDelete.control(listDelete);
+        cAdd.control(list);
+        Student found = promo->find(promo->getSelectedStudent()->getId());
+        if (found.getId() == nullptr) {
+            QStringList oldStudList;
+            oldStudList.append(promo->getSelectedStudent()->getId());
+            oldStudList.append(promo->getSelectedStudent()->getLastname());
+            oldStudList.append(promo->getSelectedStudent()->getFirstname());
+            oldStudList.append(promo->getSelectedStudent()->getBac());
+            oldStudList.append(promo->getSelectedStudent()->getDepartement());
+            cAdd.control(oldStudList);
+        }
+        ui.lineEdit_add_number->setEnabled(true);
+        ui.lineEdit_add_number->clear();
+        ui.lineEdit_add_firstname->clear();
+        ui.lineEdit_add_lastname->clear();
+        ui.lineEdit_add_BAC->setCurrentIndex(0);
+        ui.lineEdit_add_department->setCurrentIndex(0);
+        ui.pushButton_addStudent->setText("Ajout");
+    }
+}
+
+void TP3_GestionEtu::launchModifyForm() {
+    ui.pushButton_addStudent->setText("Enregistrer");
+    QString selected= ui.listWidget->currentItem()->text();
+    selected = selected.split(" ")[0];
+    ui.lineEdit_add_number->setText(promo->find(selected).getId());
+    ui.lineEdit_add_firstname->setText(promo->find(selected).getFirstname());
+    ui.lineEdit_add_lastname->setText(promo->find(selected).getLastname());
+    ui.lineEdit_add_BAC->setCurrentText(promo->find(selected).getBac());
+    ui.lineEdit_add_department->setCurrentText(promo->find(selected).getDepartement());
+    ui.lineEdit_add_number->setEnabled(false);
+    Student selectedStudent = Student(promo->find(selected).getId(), promo->find(selected).getFirstname(), promo->find(selected).getLastname(), promo->find(selected).getBac(), promo->find(selected).getDepartement());
+    promo->setSelectedStudent(selectedStudent);
 }

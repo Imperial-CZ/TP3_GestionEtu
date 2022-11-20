@@ -135,7 +135,12 @@ int Promotion::compterSTI() {
     }
     return nbSTI;
 }
-
+void Promotion::setSelectedStudent(Student stud) {
+    selectedStudent = Student(stud.getId(), stud.getFirstname(), stud.getLastname(), stud.getBac(), stud.getDepartement());
+}
+Student* Promotion::getSelectedStudent() {
+    return &selectedStudent;
+}
 void Promotion::addObserver(Observer* observer) {
     observersList.append(observer);
 }

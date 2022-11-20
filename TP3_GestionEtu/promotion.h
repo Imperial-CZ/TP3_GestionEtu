@@ -32,6 +32,8 @@ public:
 	int compterS();
 	int compterES();
 	int compterSTI();
+	void setSelectedStudent(Student);
+	Student* getSelectedStudent();
 	void addObserver(Observer* observer) override;
 	void removeObserver(Observer* observer) override;
 	void notifyObserver()const override;
