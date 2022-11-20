@@ -24,10 +24,6 @@ TP3_GestionEtu::TP3_GestionEtu(Promotion* xpromo, QWidget* parent) : QMainWindow
     connect(ui.pushButton_addStudent, &QPushButton::pressed, this, &TP3_GestionEtu::launchAddForm);
 }
 
-/**
-     * @brief TP3_GestionEtu::launchDeleteList() Constructeur de TP3_GestionEtu demandant une promotion et un QWidget qui attend un QWindows pour l'affichage
-     * @author SUARD GaetanCLOSSON Jules
-*/
 void TP3_GestionEtu::launchDeleteList() {
     Controller_DeleteList c = Controller_DeleteList(promo);
     QStringList list;
